@@ -1,0 +1,461 @@
+/* Paleta de cores: Verde Oliva, Branco e Terracota */
+:root {
+  --olive-green: #6B8E23;
+  --dark-olive: #556B2F;
+  --light-olive: #9ACD32;
+  --terracotta: #E07A5F;
+  --dark-terracotta: #C65D42;
+  --light-terracotta: #F2A08A;
+  --cream-white: #FFF8F3;
+  --pure-white: #FFFFFF;
+  --warm-gray: #8B7E74;
+  --text-dark: #2F3E46;
+  --text-light: #52796F;
+  --shadow: rgba(107, 142, 35, 0.1);
+  --terracotta-shadow: rgba(224, 122, 95, 0.15);
+}
+
+/* Reset básico e estilos globais para o convite de casamento */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Container responsivo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Estilos específicos do convite */
+.wedding-invitation {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  color: #333;
+  line-height: 1.6;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--cream-white) 0%, var(--pure-white) 50%, #F5F7F0 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(107, 142, 35, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(224, 122, 95, 0.15) 0%, transparent 50%);
+  opacity: 0.08;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+}
+
+.couple-names {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+  font-family: "Georgia", serif;
+}
+
+.bride-name {
+  color: var(--terracotta);
+  text-shadow: 1px 1px 2px rgba(224, 122, 95, 0.1);
+}
+
+.groom-name {
+  color: var(--olive-green);
+  text-shadow: 1px 1px 2px rgba(107, 142, 35, 0.1);
+}
+
+.ampersand {
+  display: inline-block;
+  margin: 0 1rem;
+  color: var(--warm-gray);
+  font-style: italic;
+}
+
+.wedding-date {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin: 1rem 0;
+  color: var(--text-dark);
+}
+
+.celebration-text {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: 0;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Details Section */
+.details {
+  background: linear-gradient(180deg, var(--cream-white) 0%, #F8F9F5 100%);
+  padding: 4rem 0;
+}
+
+.details .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.detail-card {
+  background: var(--pure-white);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 4px 12px var(--shadow);
+  border-left: 4px solid var(--olive-green);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.detail-card:nth-child(even) {
+  border-left: 4px solid var(--terracotta);
+}
+
+.detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 15px 15px 0;
+  border-color: transparent var(--light-olive) transparent transparent;
+}
+
+.detail-card:nth-child(even)::before {
+  border-color: transparent var(--light-terracotta) transparent transparent;
+}
+
+.detail-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--terracotta-shadow);
+}
+
+.detail-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.detail-card p {
+  margin: 0.25rem 0;
+  color: var(--text-light);
+}
+
+.detail-card .address {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+}
+
+/* RSVP Section */
+.rsvp {
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--dark-terracotta) 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--pure-white);
+}
+
+.rsvp h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  color: var(--pure-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rsvp p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--cream-white);
+}
+
+.rsvp-deadline {
+  font-weight: bold;
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  color: var(--pure-white);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: var(--olive-green);
+  color: var(--pure-white);
+  box-shadow: 0 4px 15px rgba(107, 142, 35, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--dark-olive);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.4);
+}
+
+.btn-secondary {
+  background: var(--pure-white);
+  color: var(--terracotta);
+  border: 2px solid var(--pure-white);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: var(--cream-white);
+  color: var(--dark-terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--olive-green);
+  border: 2px solid var(--olive-green);
+}
+
+.btn-outline:hover {
+  background: var(--olive-green);
+  color: var(--pure-white);
+  box-shadow: 0 4px 15px rgba(107, 142, 35, 0.3);
+}
+
+/* Message Section */
+.message {
+  background: linear-gradient(135deg, var(--olive-green) 0%, var(--dark-olive) 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--pure-white);
+}
+
+.message h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2.5rem;
+  color: var(--pure-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.message p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: var(--cream-white);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.signature {
+  margin: 2rem 0 0 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--pure-white);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+/* Gifts Section */
+.gifts {
+  background: var(--cream-white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.gifts h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+}
+
+.gifts p {
+  margin: 1rem 0 2rem 0;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+.footer {
+  background: var(--text-dark);
+  color: var(--cream-white);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--warm-gray);
+}
+
+.heart {
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: var(--terracotta);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Elementos decorativos */
+.detail-card .icon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  background: linear-gradient(45deg, var(--olive-green), var(--terracotta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .hero {
+    padding: 1rem 0.5rem;
+    min-height: 90vh;
+  }
+
+  .couple-names {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .ampersand {
+    margin: 0 0.5rem;
+  }
+
+  .detail-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .detail-card .icon {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .rsvp-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+  }
+
+  .rsvp h2,
+  .message h2,
+  .gifts h2 {
+    font-size: 2rem;
+  }
+
+  .details,
+  .rsvp,
+  .message,
+  .gifts {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .couple-names {
+    font-size: 2rem;
+  }
+
+  .wedding-date {
+    font-size: 1.1rem;
+  }
+
+  .celebration-text {
+    font-size: 0.95rem;
+  }
+
+  .detail-card {
+    padding: 1rem;
+  }
+
+  .rsvp h2,
+  .message h2,
+  .gifts h2 {
+    font-size: 1.75rem;
+  }
+}
