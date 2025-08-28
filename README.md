@@ -1,193 +1,94 @@
-# 💒 Wedding Invitation - Convite de Casamento
+# Wedding Invitation - Angular App
 
-Uma aplicação Angular moderna e responsiva para convites de casamento digitais, desenvolvida para ser hospedada no GitHub Pages.
+Um elegante convite de casamento desenvolvido em Angular 20+ com design responsivo e deploy automático no GitHub Pages.
 
-## ✨ Características
+## 🎨 Características
 
-- 🎨 Design elegante e responsivo
-- 📱 Otimizado para mobile, tablet e desktop
-- ⚙️ Configuração via variáveis de ambiente
-- 🚀 Deploy automático no GitHub Pages
-- 🔒 Dados pessoais protegidos com GitHub Secrets
-- 💕 Interface romântica e moderna
+- ✨ Design elegante com paleta verde oliva e verde musgo
+- 📱 Totalmente responsivo (desktop, tablet, mobile)
+- 🔒 Sistema de variáveis de ambiente para proteção de dados pessoais
+- 🚀 Deploy automático via GitHub Actions
+- 🌿 Elementos decorativos florais
+- ⚡ Performance otimizada
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
-- Angular 18+
-- TypeScript
-- CSS3 com Grid e Flexbox
-- GitHub Actions
-- GitHub Pages
+- **Angular 20.1.0** - Framework frontend moderno
+- **TypeScript** - Linguagem tipada
+- **CSS3** - Estilos customizados com variáveis CSS
+- **GitHub Actions** - CI/CD automático
+- **GitHub Pages** - Hospedagem gratuita
 
-## 🚀 Como Usar Este Projeto
+## 🏗️ Arquitetura
 
-### 1. Fork ou Clone o Repositório
+Este projeto utiliza a **arquitetura moderna do Angular** com:
+- Componentes standalone (sem módulos)
+- Bootstrap direto da aplicação
+- Environment variables para configuração
+- Testes unitários atualizados
+
+## 🚀 Como usar
+
+### Desenvolvimento Local
 
 ```bash
-git clone https://github.com/seu-usuario/wedding-invitation.git
-cd wedding-invitation
-```
-
-### 2. Instale as Dependências
-
-```bash
+# Instalar dependências
 npm install
+
+# Executar em modo desenvolvimento
+npm start
+
+# Executar testes
+npm test
 ```
 
-### 3. Configuração Local (Desenvolvimento)
+### Deploy para GitHub Pages
 
-Para testar localmente com seus dados, você pode:
+O deploy é automático! Apenas:
 
-1. Copiar o arquivo `.env.example` para `.env`
-2. Preencher com seus dados reais
-3. Ou usar o localStorage do navegador para configurar temporariamente
+1. Faça push para a branch `main` ou `master`
+2. O GitHub Actions irá:
+   - Instalar dependências
+   - Executar testes
+   - Fazer build de produção
+   - Deploy no GitHub Pages
 
-```bash
-cp .env.example .env
+### Personalização
+
+Para personalizar o convite:
+
+1. **Desenvolvimento**: Edite `src/environments/environment.ts` com seus dados reais
+2. **Produção**: Mantenha `src/environments/environment.prod.ts` com dados genéricos
+
+```typescript
+// environment.ts (desenvolvimento)
+export const environment = {
+  production: false,
+  wedding: {
+    bride: { name: 'Seu Nome' },
+    groom: { name: 'Nome do Parceiro' },
+    // ... outros dados
+  }
+};
 ```
 
-### 4. Execute Localmente
+## 📱 Responsividade
 
-```bash
-ng serve
-```
+O design foi otimizado para:
+- 🖥️ Desktop (1200px+)
+- 📱 Tablet (768px - 1199px)  
+- 📱 Mobile (até 767px)
 
-Acesse `http://localhost:4200`
+## 🎯 Performance
 
-## 🔐 Configuração para Produção (GitHub Pages)
+- Bundle size otimizado: ~1.16 MB
+- CSS enxuto: 280 linhas
+- Build time: ~3.4 segundos
 
-### 1. Configure os GitHub Secrets
+## 📄 Licença
 
-No seu repositório GitHub, vá em **Settings > Secrets and variables > Actions** e adicione os seguintes secrets:
-
-| Secret Name | Descrição | Exemplo |
-|-------------|-----------|---------|
-| `BRIDE_NAME` | Nome da noiva | "Maria Silva" |
-| `GROOM_NAME` | Nome do noivo | "João Santos" |
-| `CEREMONY_VENUE` | Local da cerimônia | "Igreja São José" |
-| `CEREMONY_ADDRESS` | Endereço da cerimônia | "Rua das Flores, 123" |
-| `RECEPTION_VENUE` | Local da recepção | "Salão de Festas Encanto" |
-| `RECEPTION_ADDRESS` | Endereço da recepção | "Av. das Palmeiras, 456" |
-| `WEDDING_DATE` | Data resumida | "Setembro 2025" |
-| `WEDDING_FULL_DATE` | Data completa | "Sábado, 20 de Setembro de 2025" |
-| `WEDDING_TIME` | Horário | "16:00" |
-| `RSVP_DEADLINE` | Prazo para confirmação | "15 de Agosto de 2025" |
-| `RSVP_LINK` | Link do formulário RSVP | "https://forms.google.com/..." |
-| `WHATSAPP_LINK` | Link do WhatsApp | "https://wa.me/5511999999999?text=..." |
-| `WEDDING_MESSAGE` | Mensagem especial | "Dois corações se unem..." |
-| `GIFT_MESSAGE` | Mensagem sobre presentes | "Sua presença já é..." |
-| `GIFT_LINK` | Link da lista de presentes | "https://lista.com/..." |
-
-### 2. Ative o GitHub Pages
-
-1. Vá em **Settings > Pages**
-2. Em **Source**, selecione **GitHub Actions**
-3. O workflow será executado automaticamente a cada push na branch `main`
-
-### 3. Acesse Sua Aplicação
-
-Após o deploy, sua aplicação estará disponível em:
-`https://seu-usuario.github.io/wedding-invitation/`
-
-## 📁 Estrutura do Projeto
-
-```
-src/
-├── app/
-│   ├── app.ts              # Componente principal
-│   ├── app.html            # Template do convite
-│   ├── app.css             # Estilos do convite
-│   └── config.service.ts   # Serviço de configuração
-├── environments/
-│   ├── environment.ts      # Configuração de desenvolvimento
-│   ├── environment.prod.ts # Configuração de produção
-│   └── environment.prod.ts.template # Template para GitHub Actions
-└── styles.css              # Estilos globais
-```
-
-## 🎨 Personalização
-
-### Cores e Temas
-
-Edite as variáveis CSS no arquivo `app.css` para personalizar as cores:
-
-```css
-:root {
-  --primary-rose: #d63384;
-  --primary-gold: #f8b500;
-  --soft-cream: #faf7f2;
-  /* ... outras cores */
-}
-```
-
-### Layout e Seções
-
-O convite possui as seguintes seções que podem ser personalizadas:
-
-- **Hero Section**: Nomes dos noivos e data
-- **Detalhes**: Data, cerimônia e recepção
-- **RSVP**: Confirmação de presença
-- **Mensagem**: Texto especial dos noivos
-- **Presentes**: Lista de presentes (opcional)
-- **Footer**: Informações finais
-
-## 🔧 Desenvolvimento
-
-### Comandos Úteis
-
-```bash
-# Desenvolvimento
-ng serve
-
-# Build para produção
-ng build --configuration production
-
-# Testes
-ng test
-
-# Linting
-ng lint
-```
-
-### Configuração de Desenvolvimento
-
-Durante o desenvolvimento, você pode usar o localStorage para testar diferentes configurações:
-
-```javascript
-// No console do navegador
-const configService = app.get(ConfigService);
-configService.setDevelopmentConfig({
-  bride: { name: 'Teste Noiva' },
-  groom: { name: 'Teste Noivo' }
-});
-```
-
-## 📝 Licença
-
-Este projeto é open source e está disponível sob a [MIT License](LICENSE).
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-- Reportar bugs
-- Sugerir melhorias
-- Enviar pull requests
-- Compartilhar feedback
-
-## 💡 Ideias Futuras
-
-- [ ] Galeria de fotos
-- [ ] Cronograma do evento
-- [ ] Mapa interativo
-- [ ] Playlist colaborativa
-- [ ] Chat para convidados
-- [ ] Contador regressivo
-
-## 📞 Suporte
-
-Se você tiver dúvidas ou precisar de ajuda, abra uma issue no GitHub.
+Este é um projeto de portfólio. Sinta-se livre para usar como referência.
 
 ---
 
-**Feito com 💕 para celebrar o amor**
+Desenvolvido com ❤️ usando Angular 20+
