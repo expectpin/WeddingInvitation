@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+# Only exists if Bazel was run
 /bazel-out
 
 # Node
@@ -41,13 +42,14 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Environment variables
+# Environment files (importante para proteger dados pessoais)
 .env
 .env.local
-.env.production
-.env.development
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Personal wedding data (keep your secrets safe!)
-src/environments/environment.ts
-wedding-config.json
+# Angular specific
+/.angular/
 .vscode/
+src/environments/environment.ts

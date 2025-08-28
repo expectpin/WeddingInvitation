@@ -1,15 +1,21 @@
-name: Deploy Wedding Invitation to GitHub Pages
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+# Permite execução manual do workflow
   workflow_dispatch:
 
+# Define permissões necessárias para o GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Permite apenas um deployment por vez
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -17,48 +23,33 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Build with environment variables
-        env:
-          BRIDE_NAME: ${{ secrets.BRIDE_NAME }}
-          GROOM_NAME: ${{ secrets.GROOM_NAME }}
-          CEREMONY_VENUE: ${{ secrets.CEREMONY_VENUE }}
-          CEREMONY_ADDRESS: ${{ secrets.CEREMONY_ADDRESS }}
-          RECEPTION_VENUE: ${{ secrets.RECEPTION_VENUE }}
-          RECEPTION_ADDRESS: ${{ secrets.RECEPTION_ADDRESS }}
-          WEDDING_DATE: ${{ secrets.WEDDING_DATE }}
-          WEDDING_FULL_DATE: ${{ secrets.WEDDING_FULL_DATE }}
-          WEDDING_TIME: ${{ secrets.WEDDING_TIME }}
-          RSVP_DEADLINE: ${{ secrets.RSVP_DEADLINE }}
-          RSVP_LINK: ${{ secrets.RSVP_LINK }}
-          WHATSAPP_LINK: ${{ secrets.WHATSAPP_LINK }}
-          WEDDING_MESSAGE: ${{ secrets.WEDDING_MESSAGE }}
-          GIFT_MESSAGE: ${{ secrets.GIFT_MESSAGE }}
-          GIFT_LINK: ${{ secrets.GIFT_LINK }}
-        run: |
-          # Substitui as variáveis nos arquivos de environment
-          envsubst < src/environments/environment.prod.ts.template > src/environments/environment.prod.ts
-          npm run build -- --configuration production --base-href="/wedding-invitation/"
+    - name: Run tests
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+    - name: Build Angular app for production
+      run: npm run build -- --configuration=production --base-href="/Wedding/"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist/wedding'
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./dist/Wedding
 
   deploy:
     environment:
@@ -67,6 +58,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
