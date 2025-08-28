@@ -1,5 +1,5 @@
 // Environment para PRODUÇÃO (GitHub Pages)
-// Estes dados genéricos serão visíveis no seu portfólio público
+// Dados substituídos durante o build via GitHub Secrets
 export const environment = {
   production: true,
   wedding: {

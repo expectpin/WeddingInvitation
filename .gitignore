@@ -51,6 +51,8 @@ Thumbs.db
 
 # Angular specific
 /.angular/
-.vscode/
+
+# Proteger dados pessoais - ignorar environment.ts de desenvolvimento
 src/environments/environment.ts
 GITHUB_SECRETS.md
+.vscode/
