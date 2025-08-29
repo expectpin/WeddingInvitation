@@ -1,5 +1,5 @@
 {
-  "name": "wedding",
+  "name": "weddinginvitation",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "build:github": "node scripts/replace-env.js && ng build --configuration=production --base-href=/WeddingInvitation/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
+    "test:ci": "node scripts/replace-env.js && ng test --no-watch --no-progress --browsers=ChromeHeadless",
     "replace-env": "node scripts/replace-env.js"
   },
   "prettier": {
