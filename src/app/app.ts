@@ -11,6 +11,6 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'wedding-invitation';
 
-  // Dados do casamento vindos das variáveis de ambiente
-  wedding = environment.wedding;
+  // Expondo as variáveis de ambiente para o template
+  readonly weddingData = environment.wedding;
 }

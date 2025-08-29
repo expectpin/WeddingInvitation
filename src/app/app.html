@@ -11,15 +11,13 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="floral-frame">
-          <h1 class="couple-names">
-            <span class="bride-name">{{ wedding.bride.name }}</span>
-            <span class="ampersand">&</span>
-            <span class="groom-name">{{ wedding.groom.name }}</span>
-          </h1>
-          <p class="wedding-date">{{ wedding.date }}</p>
-          <p class="celebration-text">Celebrando nosso amor</p>
-        </div>
+        <h1 class="couple-names">
+          <span class="bride-name">{{ weddingData.bride.name }}</span>
+          <span class="ampersand">&</span>
+          <span class="groom-name">{{ weddingData.groom.name }}</span>
+        </h1>
+        <p class="wedding-date">{{ weddingData.date }}</p>
+        <p class="celebration-text">Celebrando nosso amor</p>
       </div>
     </div>
   </section>
@@ -31,7 +29,7 @@
         <div class="detail-icon">📅</div>
         <div class="detail-content">
           <h3>Data</h3>
-          <p>{{ wedding.fullDate }}<br>{{ wedding.time }}</p>
+          <p>{{ weddingData.fullDate }}<br>{{ weddingData.time }}</p>
         </div>
       </div>
 
@@ -39,7 +37,7 @@
         <div class="detail-icon">⛪</div>
         <div class="detail-content">
           <h3>Cerimônia</h3>
-          <p>{{ wedding.ceremony.venue }}<br>{{ wedding.ceremony.address }}</p>
+          <p>{{ weddingData.ceremony.venue }}<br>{{ weddingData.ceremony.address }}</p>
         </div>
       </div>
 
@@ -47,7 +45,7 @@
         <div class="detail-icon">🎉</div>
         <div class="detail-content">
           <h3>Recepção</h3>
-          <p>{{ wedding.reception.venue }}<br>{{ wedding.reception.address }}</p>
+          <p>{{ weddingData.reception.venue }}<br>{{ weddingData.reception.address }}</p>
         </div>
       </div>
     </div>
@@ -58,10 +56,10 @@
     <div class="container">
       <h2>Confirme sua Presença</h2>
       <p>Sua presença é muito importante para nós!</p>
-      <p class="rsvp-deadline">Por favor, confirme até {{ wedding.rsvpDeadline }}</p>
+      <p class="rsvp-deadline">Por favor, confirme até {{ weddingData.rsvpDeadline }}</p>
       <div class="rsvp-actions">
-        <a [href]="wedding.whatsappLink" class="btn btn-primary" target="_blank">Confirmar Presença</a>
-        <a [href]="wedding.rsvpLink" class="btn btn-secondary" target="_blank">Ver Detalhes</a>
+        <a [href]="weddingData.rsvpLink" class="btn btn-primary">Confirmar Presença</a>
+        <a [href]="weddingData.whatsappLink" class="btn btn-secondary">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -70,8 +68,8 @@
   <section class="message">
     <div class="container">
       <h2>Uma Nova Jornada</h2>
-      <p>{{ wedding.message }}</p>
-      <p class="signature">Com carinho, {{ wedding.bride.name }} & {{ wedding.groom.name }}</p>
+      <p>{{ weddingData.message }}</p>
+      <p class="signature">Com carinho, {{ weddingData.bride.name }} & {{ weddingData.groom.name }}</p>
     </div>
   </section>
 
@@ -79,15 +77,15 @@
   <section class="gifts">
     <div class="container">
       <h2>Lista de Presentes</h2>
-      <p>{{ wedding.giftInfo.message }}</p>
-      <a [href]="wedding.giftInfo.link" class="btn btn-outline" target="_blank">Ver Lista de Presentes</a>
+      <p>{{ weddingData.giftInfo?.message }}</p>
+      <a [href]="weddingData.giftInfo?.link" class="btn btn-outline">Ver Lista de Presentes</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 {{ wedding.bride.name }} & {{ wedding.groom.name }}</p>
+      <p>&copy; 2025 {{ weddingData.bride.name }} & {{ weddingData.groom.name }}</p>
       <div class="heart">💚</div>
     </div>
   </footer>
