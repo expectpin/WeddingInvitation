@@ -5,13 +5,17 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+# Permite execução manual do workflow
   workflow_dispatch:
 
+# Define permissões necessárias para o GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Permite apenas um deployment por vez
 concurrency:
   group: "pages"
   cancel-in-progress: false
