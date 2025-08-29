@@ -1,5 +1,5 @@
 // Environment para PRODUÇÃO (GitHub Pages)
-// Dados substituídos durante o build via GitHub Secrets
+// Dados substituídos automaticamente durante o build via GitHub Secrets
 export const environment = {
   production: true,
   wedding: {
@@ -23,9 +23,9 @@ export const environment = {
     rsvpDeadline: 'Data Limite RSVP',
     rsvpLink: '#',
     whatsappLink: '#',
-    message: 'Uma mensagem especial sobre o amor e a celebração. Este é um exemplo de convite de casamento desenvolvido em Angular.',
+    message: 'Uma mensagem especial sobre o amor e a celebração.',
     giftInfo: {
-      message: 'Este é um projeto de demonstração para portfólio.',
+      message: 'Sua presença já é nosso maior presente!',
       link: '#'
     }
   }

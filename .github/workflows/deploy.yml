@@ -2,20 +2,17 @@ name: Deploy Angular App to GitHub Pages
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
-# Permite execução manual do workflow
   workflow_dispatch:
 
-# Define permissões necessárias para o GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite apenas um deployment por vez
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -25,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Setup Node.js
@@ -37,8 +34,11 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Setup environment files for CI
-      run: node scripts/replace-env.js
+    - name: Run tests
+      run: npm run test:ci
+
+    - name: Build
+      run: npm run build:github
       env:
         BRIDE_NAME: ${{ secrets.BRIDE_NAME }}
         GROOM_NAME: ${{ secrets.GROOM_NAME }}
@@ -56,19 +56,13 @@ jobs:
         GIFT_MESSAGE: ${{ secrets.GIFT_MESSAGE }}
         GIFT_LINK: ${{ secrets.GIFT_LINK }}
 
-    - name: Run tests
-      run: npm run test:ci
-
-    - name: Build Angular app for production
-      run: npm run build:github
-
     - name: Setup Pages
-      uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v5
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       with:
-        path: ./dist/Wedding/browser
+        path: './dist/WeddingInvitation/browser'
 
   deploy:
     environment:

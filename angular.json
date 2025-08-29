@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Wedding": {
+    "WeddingInvitation": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -52,7 +52,13 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -66,10 +72,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Wedding:build:production"
+              "buildTarget": "WeddingInvitation:build:production"
             },
             "development": {
-              "buildTarget": "Wedding:build:development"
+              "buildTarget": "WeddingInvitation:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -3,18 +3,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Função para criar environment.ts genérico para testes (se não existir)
-function createTestEnvironment() {
-  const envTestPath = path.join(__dirname, '../src/environments/environment.ts');
+// Função para criar environment.ts genérico para desenvolvimento (se não existir)
+function createDevEnvironment() {
+  const envDevPath = path.join(__dirname, '../src/environments/environment.ts');
 
   // Se o arquivo já existe, não sobrescrever (desenvolvimento local)
-  if (fs.existsSync(envTestPath)) {
+  if (fs.existsSync(envDevPath)) {
     console.log('✅ environment.ts already exists (development mode)');
     return;
   }
 
-  // Template genérico para testes no CI
-  const envTestTemplate = `// Environment para DESENVOLVIMENTO/TESTES (gerado automaticamente no CI)
+  // Template genérico apenas para desenvolvimento/CI quando não existe arquivo local
+  const envDevTemplate = `// Environment para DESENVOLVIMENTO/TESTES (gerado automaticamente)
 export const environment = {
   production: false,
   wedding: {
@@ -43,58 +43,90 @@ export const environment = {
 };
 `;
 
-  fs.writeFileSync(envTestPath, envTestTemplate);
+  fs.writeFileSync(envDevPath, envDevTemplate);
   console.log('✅ environment.ts created for testing!');
 }
 
-// Função para substituir variáveis de ambiente no arquivo de produção
+// Função PRINCIPAL: substituir variáveis de ambiente no arquivo de PRODUÇÃO
 function replaceEnvironmentVariables() {
   const envProdPath = path.join(__dirname, '../src/environments/environment.prod.ts');
 
-  // Template do arquivo de produção com placeholders
-  const envTemplate = `// Environment para PRODUÇÃO (GitHub Pages)
-// Dados substituídos durante o build via GitHub Secrets
+  console.log('🔧 Applying environment variables to production config...');
+  console.log('📍 Target file:', envProdPath);
+
+  // Valores das variáveis de ambiente (com fallbacks de exemplo)
+  const envVars = {
+    BRIDE_NAME: process.env.BRIDE_NAME || 'Nome da Noiva',
+    GROOM_NAME: process.env.GROOM_NAME || 'Nome do Noivo',
+    CEREMONY_VENUE: process.env.CEREMONY_VENUE || 'Local da Cerimônia',
+    CEREMONY_ADDRESS: process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123',
+    RECEPTION_VENUE: process.env.RECEPTION_VENUE || 'Local da Recepção',
+    RECEPTION_ADDRESS: process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456',
+    WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
+    WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
+    WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
+    RSVP_DEADLINE: process.env.RSVP_DEADLINE || 'Data Limite RSVP',
+    RSVP_LINK: process.env.RSVP_LINK || '#',
+    WHATSAPP_LINK: process.env.WHATSAPP_LINK || '#',
+    WEDDING_MESSAGE: process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração.',
+    GIFT_MESSAGE: process.env.GIFT_MESSAGE || 'Sua presença já é nosso maior presente!',
+    GIFT_LINK: process.env.GIFT_LINK || '#'
+  };
+
+  // Log das variáveis (sem expor dados sensíveis)
+  console.log('📋 Environment variables status:');
+  Object.keys(envVars).forEach(key => {
+    const value = envVars[key];
+    const isDefault = !process.env[key];
+    console.log(`   ${key}: ${isDefault ? '[DEFAULT]' : '[SET]'} ${value.substring(0, 20)}${value.length > 20 ? '...' : ''}`);
+  });
+
+  // Template do arquivo de produção com valores reais
+  const envProdTemplate = `// Environment para PRODUÇÃO (GitHub Pages)
 export const environment = {
   production: true,
   wedding: {
     bride: {
-      name: '${process.env.BRIDE_NAME || 'Nome da Noiva'}'
+      name: '${envVars.BRIDE_NAME}'
     },
     groom: {
-      name: '${process.env.GROOM_NAME || 'Nome do Noivo'}'
+      name: '${envVars.GROOM_NAME}'
     },
     ceremony: {
-      venue: '${process.env.CEREMONY_VENUE || 'Local da Cerimônia'}',
-      address: '${process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123'}'
+      venue: '${envVars.CEREMONY_VENUE}',
+      address: '${envVars.CEREMONY_ADDRESS}'
     },
     reception: {
-      venue: '${process.env.RECEPTION_VENUE || 'Local da Recepção'}',
-      address: '${process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456'}'
+      venue: '${envVars.RECEPTION_VENUE}',
+      address: '${envVars.RECEPTION_ADDRESS}'
     },
-    date: '${process.env.WEDDING_DATE || 'Mês/Ano'}',
-    fullDate: '${process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento'}',
-    time: '${process.env.WEDDING_TIME || 'Horário'}',
-    rsvpDeadline: '${process.env.RSVP_DEADLINE || 'Data Limite RSVP'}',
-    rsvpLink: '${process.env.RSVP_LINK || '#'}',
-    whatsappLink: '${process.env.WHATSAPP_LINK || '#'}',
-    message: '${process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração. Este é um exemplo de convite de casamento desenvolvido em Angular.'}',
+    date: '${envVars.WEDDING_DATE}',
+    fullDate: '${envVars.WEDDING_FULL_DATE}',
+    time: '${envVars.WEDDING_TIME}',
+    rsvpDeadline: '${envVars.RSVP_DEADLINE}',
+    rsvpLink: '${envVars.RSVP_LINK}',
+    whatsappLink: '${envVars.WHATSAPP_LINK}',
+    message: '${envVars.WEDDING_MESSAGE}',
     giftInfo: {
-      message: '${process.env.GIFT_MESSAGE || 'Este é um projeto de demonstração para portfólio.'}',
-      link: '${process.env.GIFT_LINK || '#'}'
+      message: '${envVars.GIFT_MESSAGE}',
+      link: '${envVars.GIFT_LINK}'
     }
   }
 };
 `;
 
   // Escrever o arquivo com as variáveis substituídas
-  fs.writeFileSync(envProdPath, envTemplate);
-  console.log('✅ Environment variables replaced successfully!');
+  fs.writeFileSync(envProdPath, envProdTemplate);
+  console.log('✅ Environment variables successfully applied to production config!');
+  console.log('🚀 Production build ready with your secrets!');
 }
 
-// Executar ambas as funções
+// Executar as funções
 function setupEnvironments() {
-  createTestEnvironment();
+  console.log('🔄 Setting up environments for build...');
+  createDevEnvironment();
   replaceEnvironmentVariables();
+  console.log('🎉 Environment setup completed!');
 }
 
 // Executar apenas se chamado diretamente
@@ -102,4 +134,4 @@ if (require.main === module) {
   setupEnvironments();
 }
 
-module.exports = { createTestEnvironment, replaceEnvironmentVariables, setupEnvironments };
+module.exports = { createDevEnvironment, replaceEnvironmentVariables, setupEnvironments };
