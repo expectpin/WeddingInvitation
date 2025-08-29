@@ -17,9 +17,9 @@ describe('AppComponent', () => {
   it('should have wedding data from environment', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.wedding).toBeDefined();
-    expect(app.wedding.bride.name).toBeDefined();
-    expect(app.wedding.groom.name).toBeDefined();
+    expect(app.weddingData).toBeDefined();
+    expect(app.weddingData.bride.name).toBeDefined();
+    expect(app.weddingData.groom.name).toBeDefined();
   });
 
   it('should render couple names', () => {
