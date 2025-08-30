@@ -17,11 +17,6 @@
   --branco-suave: #FAFAFA;
   --texto-escuro: #4A5D3A;
   --sombra: rgba(74, 93, 58, 0.1);
-  /* Novos stops para o gradiente principal mais neutro */
-  --hero-bg-1: #FAFAFA;
-  --hero-bg-2: #F3F6F1;
-  --hero-bg-3: #E6EDE4;
-  --hero-bg-4: #DEE6DB;
 }
 
 html, body {
@@ -78,12 +73,7 @@ img {
 /* Hero Section com nova imagem de fundo */
 .hero {
   position: relative;
-  /* Gradiente menos esverdeado e mais leve */
-  background: linear-gradient(155deg,
-    var(--hero-bg-1) 0%,
-    var(--hero-bg-2) 35%,
-    var(--hero-bg-3) 65%,
-    var(--hero-bg-4) 100%);
+  background: linear-gradient(135deg, var(--ivory) 0%, var(--cream-white) 30%, var(--light-sage) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -102,20 +92,14 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   opacity: 0.35;
-  /* Overlay bem leve para dar profundidade sem “lavar” o fundo */
   z-index: 1;
-    140deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.15) 100%
+  animation: gentleFloat 20s ease-in-out infinite;
+}
+
+/* Overlay mais sutil para melhor harmonia */
 .hero::after {
   content: '';
-  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -226,10 +210,6 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
   opacity: 0.08;
   transform: rotate(180deg);
   z-index: 1;
@@ -312,9 +292,6 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center;
   opacity: 0.1;
   z-index: 1;
 }
@@ -452,9 +429,6 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center top;
   opacity: 0.08;
   z-index: 1;
   transform: rotate(180deg);
@@ -516,10 +490,6 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   opacity: 0.12;
   z-index: 1;
   transform: scale(1.1);
@@ -568,10 +538,6 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/wetland green branches_5936981.png');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
   opacity: 0.15;
   z-index: 1;
   transform: rotate(180deg) scale(1.05);
