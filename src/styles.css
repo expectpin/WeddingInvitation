@@ -12,6 +12,7 @@
   --verde-oliva-claro: #9CAF88;
   --verde-musgo-claro: #A8B89A;
   --verde-oliva-medio: #7A8471;
+  --verde-oliva: #1B5929;
   --verde-musgo-medio: #8FA082;
   --branco: #FFFFFF;
   --branco-suave: #FAFAFA;
@@ -159,19 +160,19 @@ img {
 }
 
 .bride-name {
-  color: var(--verde-oliva-claro) !important;
+  color: var(--verde-oliva) !important;
   text-shadow: 2px 2px 6px rgba(156, 175, 136, 0.5);
 }
 
 .groom-name {
-  color: var(--verde-musgo-medio) !important;
+  color: var(--verde-oliva) !important;
   text-shadow: 2px 2px 6px rgba(143, 160, 130, 0.5);
 }
 
 .ampersand {
   display: inline-block;
   margin: 0 1rem;
-  color: var(--verde-oliva-medio);
+  color: var(--texto-escuro);
   font-style: italic;
   font-size: 0.8em;
   text-shadow: 1px 1px 3px rgba(122, 132, 113, 0.4);
@@ -180,14 +181,14 @@ img {
 .wedding-date {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   margin: 1.5rem 0;
-  color: var(--texto-escuro);
-  font-weight: 400;
+  color: var(--verde-oliva);
+  font-weight: 500;
 }
 
 .celebration-text {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin: 0;
-  color: var(--verde-oliva-medio);
+  color: var(--dark-olive);
   font-style: italic;
 }
 
@@ -220,7 +221,6 @@ img {
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
 }
 
 .detail-card {
@@ -235,7 +235,7 @@ img {
     0 10px 35px rgba(135, 152, 106, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-left: 4px solid var(--verde-oliva-claro);
+  border-left: 4px solid var(--verde-oliva);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 1s ease-out;
   animation-fill-mode: both;
