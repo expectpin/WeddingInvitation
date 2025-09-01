@@ -17,6 +17,7 @@ export const environment = {
       venue: 'Local da Recepção',
       address: 'Endereço da Recepção, 456'
     },
+    dressCode: 'Por favor, venha com sua melhor roupa social e aproveite a celebração conosco!',
     date: 'Mês/Ano',
     fullDate: 'Data Completa do Casamento',
     time: 'Horário',

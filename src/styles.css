@@ -262,6 +262,18 @@ img {
   flex-shrink: 0;
 }
 
+/* Estilos para ícones SVG Material Symbols */
+.material-icon-svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--verde-musgo-medio);
+  transition: fill 0.3s ease;
+}
+
+.detail-card:hover .material-icon-svg {
+  fill: var(--verde-oliva-medio);
+}
+
 .detail-content h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;

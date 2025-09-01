@@ -28,6 +28,7 @@ export const environment = {
       venue: 'Test Reception Venue',
       address: 'Test Reception Address, 456'
     },
+    dressCode: 'Venha com sua melhor roupa social e aproveite a celebração conosco.',
     date: '01/01/2025',
     fullDate: 'Test Date, 01 de Janeiro de 2025',
     time: '18:00',
@@ -65,6 +66,7 @@ function replaceEnvironmentVariables() {
     WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
     WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
+    DRESS_CODE: process.env.DRESS_CODE || 'Traje',
     RSVP_DEADLINE: process.env.RSVP_DEADLINE || 'Data Limite RSVP',
     RSVP_LINK: process.env.RSVP_LINK || '#',
     WHATSAPP_LINK: process.env.WHATSAPP_LINK || '#',
@@ -100,6 +102,7 @@ export const environment = {
       venue: '${envVars.RECEPTION_VENUE}',
       address: '${envVars.RECEPTION_ADDRESS}'
     },
+    dressCode: '${envVars.DRESS_CODE}',
     date: '${envVars.WEDDING_DATE}',
     fullDate: '${envVars.WEDDING_FULL_DATE}',
     time: '${envVars.WEDDING_TIME}',

@@ -16,7 +16,9 @@
   <section class="details">
     <div class="container">
       <div class="detail-card">
-        <div class="detail-icon">📅</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/event.svg" alt="Data" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Data</h3>
           <p>{{ weddingData.fullDate }}<br>{{ weddingData.time }}</p>
@@ -24,7 +26,9 @@
       </div>
 
       <div class="detail-card">
-        <div class="detail-icon">⛪</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/church.svg" alt="Cerimônia" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Cerimônia</h3>
           <p>{{ weddingData.ceremony.venue }}<br>{{ weddingData.ceremony.address }}</p>
@@ -32,10 +36,22 @@
       </div>
 
       <div class="detail-card">
-        <div class="detail-icon">🎉</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/celebration.svg" alt="Recepção" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Recepção</h3>
           <p>{{ weddingData.reception.venue }}<br>{{ weddingData.reception.address }}</p>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/dress.svg" alt="Traje" class="material-icon-svg">
+        </div>
+        <div class="detail-content">
+          <h3>Traje</h3>
+          <p>{{ weddingData.dressCode }}</p>
         </div>
       </div>
     </div>
@@ -45,11 +61,10 @@
   <section class="rsvp">
     <div class="container">
       <h2>Confirme sua Presença</h2>
-      <p>Sua presença é muito importante para nós!</p>
-      <p class="rsvp-deadline">Por favor, confirme até {{ weddingData.rsvpDeadline }}</p>
+      <p>Você está convidado para celebrar o nosso grande dia.</p>
+      <p class="rsvp-deadline">Pedimos gentilmente que nos confirme até dia {{ weddingData.rsvpDeadline }}<br>26.09.2025 | 19:00h</p>
       <div class="rsvp-actions">
-        <a [href]="weddingData.rsvpLink" class="btn btn-primary">Confirmar Presença</a>
-        <a [href]="weddingData.whatsappLink" class="btn btn-secondary">WhatsApp</a>
+        <a [href]="weddingData.rsvpLink" class="btn btn-primary">Confirmar</a>
       </div>
     </div>
   </section>
