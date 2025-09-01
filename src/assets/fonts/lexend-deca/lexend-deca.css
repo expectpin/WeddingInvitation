@@ -1,0 +1,82 @@
+/* Lexend Deca Font Family - Internalizada */
+
+/* Lexend Deca Thin (100) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('./LexendDeca-Thin.ttf') format('truetype');
+}
+
+/* Lexend Deca ExtraLight (200) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('./LexendDeca-ExtraLight.ttf') format('truetype');
+}
+
+/* Lexend Deca Light (300) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./LexendDeca-Light.ttf') format('truetype');
+}
+
+/* Lexend Deca Regular (400) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./LexendDeca-Regular.ttf') format('truetype');
+}
+
+/* Lexend Deca Medium (500) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./LexendDeca-Medium.ttf') format('truetype');
+}
+
+/* Lexend Deca SemiBold (600) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./LexendDeca-SemiBold.ttf') format('truetype');
+}
+
+/* Lexend Deca Bold (700) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./LexendDeca-Bold.ttf') format('truetype');
+}
+
+/* Lexend Deca ExtraBold (800) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./LexendDeca-ExtraBold.ttf') format('truetype');
+}
+
+/* Lexend Deca Black (900) */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./LexendDeca-Black.ttf') format('truetype');
+}
