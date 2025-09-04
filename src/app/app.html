@@ -64,8 +64,107 @@
       <p>Você está convidado para celebrar o nosso grande dia.</p>
       <p class="rsvp-deadline">Pedimos gentilmente que nos confirme até dia {{ weddingData.rsvpDeadline }}<br>26.09.2025 | 19:00h</p>
       <div class="rsvp-actions">
-        <a [href]="weddingData.rsvpLink" class="btn btn-primary">Confirmar</a>
+        <button (click)="showConfirmationForm()" class="btn btn-primary">Confirmar</button>
       </div>
+    </div>
+  </section>
+
+  <!-- Confirmation Form Section -->
+  <section class="confirmation-form" [class.visible]="isFormVisible" id="confirmationForm">
+    <div class="container">
+      <h2>Dados para Confirmação</h2>
+      <form class="rsvp-form">
+        <!-- Dados do convidado principal -->
+        <div class="form-group">
+          <label for="firstName">Nome *</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="formData.guest.firstName"
+            required
+            class="form-input"
+            placeholder="Seu nome"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Sobrenome *</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            [(ngModel)]="formData.guest.lastName"
+            required
+            class="form-input"
+            placeholder="Seu sobrenome"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefone *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            [(ngModel)]="formData.guest.phone"
+            required
+            class="form-input"
+            placeholder="(xx) xxxxx-xxxx"
+          />
+        </div>
+
+        <!-- Botão para adicionar acompanhante -->
+        <div class="companion-section" *ngIf="!showCompanionFields">
+          <button type="button" (click)="addCompanion()" class="btn btn-outline">
+            Adicionar Acompanhante
+          </button>
+        </div>
+
+        <!-- Campos do acompanhante -->
+        <div class="companion-fields" *ngIf="showCompanionFields">
+          <h3>Dados do Acompanhante</h3>
+          
+          <div class="form-group">
+            <label for="companionFirstName">Nome do Acompanhante *</label>
+            <input
+              type="text"
+              id="companionFirstName"
+              name="companionFirstName"
+              [(ngModel)]="formData.companion.firstName"
+              class="form-input"
+              placeholder="Nome do acompanhante"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="companionLastName">Sobrenome do Acompanhante *</label>
+            <input
+              type="text"
+              id="companionLastName"
+              name="companionLastName"
+              [(ngModel)]="formData.companion.lastName"
+              class="form-input"
+              placeholder="Sobrenome do acompanhante"
+            />
+          </div>
+
+          <button type="button" (click)="removeCompanion()" class="btn btn-text">
+            Remover Acompanhante
+          </button>
+        </div>
+
+        <!-- Botão de envio -->
+        <div class="form-actions">
+          <button
+            type="button"
+            (click)="sendConfirmation()"
+            class="btn btn-primary btn-large"
+          >
+            Enviar Confirmação
+          </button>
+        </div>
+      </form>
     </div>
   </section>
 
