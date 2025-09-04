@@ -30,7 +30,7 @@ export const environment: Environment = {
       venue: 'Test Reception Venue',
       address: 'Test Reception Address, 456'
     },
-    dressCode: 'Venha com sua melhor roupa social e aproveite a celebração conosco.',
+    dressCode: 'Traje social elegante.',
     date: '01/01/2025',
     fullDate: 'Test Date, 01 de Janeiro de 2025',
     time: '18:00',
@@ -66,7 +66,7 @@ function replaceEnvironmentVariables() {
     CEREMONY_ADDRESS: process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123',
     RECEPTION_VENUE: process.env.RECEPTION_VENUE || 'Local da Recepção',
     RECEPTION_ADDRESS: process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456',
-    DRESS_CODE: process.env.DRESS_CODE || 'Venha com sua melhor roupa social e aproveite a celebração conosco.',
+    DRESS_CODE: process.env.DRESS_CODE || 'Traje social elegante.',
     WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
     WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
