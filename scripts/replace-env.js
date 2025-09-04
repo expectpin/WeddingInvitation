@@ -15,7 +15,9 @@ function createDevEnvironment() {
 
   // Template genérico apenas para desenvolvimento/CI quando não existe arquivo local
   const envDevTemplate = `// Environment para DESENVOLVIMENTO/TESTES (gerado automaticamente)
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
   production: false,
   wedding: {
     bride: { name: 'Test Bride' },
@@ -34,6 +36,7 @@ export const environment = {
     time: '18:00',
     rsvpDeadline: '01 de dezembro de 2024',
     rsvpLink: 'https://example.com/rsvp',
+    whatsappNumber: '5500000000000',
     whatsappLink: 'https://wa.me/5500000000000',
     message: 'Test wedding message for development and testing.',
     giftInfo: {
@@ -63,12 +66,13 @@ function replaceEnvironmentVariables() {
     CEREMONY_ADDRESS: process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123',
     RECEPTION_VENUE: process.env.RECEPTION_VENUE || 'Local da Recepção',
     RECEPTION_ADDRESS: process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456',
+    DRESS_CODE: process.env.DRESS_CODE || 'Venha com sua melhor roupa social e aproveite a celebração conosco.',
     WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
     WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
-    DRESS_CODE: process.env.DRESS_CODE || 'Traje',
     RSVP_DEADLINE: process.env.RSVP_DEADLINE || 'Data Limite RSVP',
     RSVP_LINK: process.env.RSVP_LINK || '#',
+    WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '5500000000000',
     WHATSAPP_LINK: process.env.WHATSAPP_LINK || '#',
     WEDDING_MESSAGE: process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração.',
     GIFT_MESSAGE: process.env.GIFT_MESSAGE || 'Sua presença já é nosso maior presente!',
@@ -85,7 +89,9 @@ function replaceEnvironmentVariables() {
 
   // Template do arquivo de produção com valores reais
   const envProdTemplate = `// Environment para PRODUÇÃO (GitHub Pages)
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
   production: true,
   wedding: {
     bride: {
@@ -108,6 +114,7 @@ export const environment = {
     time: '${envVars.WEDDING_TIME}',
     rsvpDeadline: '${envVars.RSVP_DEADLINE}',
     rsvpLink: '${envVars.RSVP_LINK}',
+    whatsappNumber: '${envVars.WHATSAPP_NUMBER}',
     whatsappLink: '${envVars.WHATSAPP_LINK}',
     message: '${envVars.WEDDING_MESSAGE}',
     giftInfo: {
