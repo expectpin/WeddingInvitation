@@ -18,9 +18,7 @@ export interface WeddingData {
   fullDate: string;
   time: string;
   rsvpDeadline: string;
-  rsvpLink: string;
   whatsappNumber: string;
-  whatsappLink: string;
   message: string;
   giftInfo: {
     message: string;

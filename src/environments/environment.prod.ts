@@ -23,9 +23,7 @@ export const environment: Environment = {
     fullDate: 'Data Completa do Casamento',
     time: 'Horário',
     rsvpDeadline: 'Data Limite RSVP',
-    rsvpLink: '#',
-    whatsappNumber: '5500000000000',
-    whatsappLink: '#',
+    whatsappNumber: '5599999999999', // ← MUDE AQUI para seu número real com código do país e DDD
     message: 'Uma mensagem especial sobre o amor e a celebração.',
     giftInfo: {
       message: 'Sua presença já é nosso maior presente!',

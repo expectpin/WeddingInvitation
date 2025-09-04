@@ -51,9 +51,7 @@ jobs:
         WEDDING_FULL_DATE: ${{ secrets.WEDDING_FULL_DATE }}
         WEDDING_TIME: ${{ secrets.WEDDING_TIME }}
         RSVP_DEADLINE: ${{ secrets.RSVP_DEADLINE }}
-        RSVP_LINK: ${{ secrets.RSVP_LINK }}
         WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
-        WHATSAPP_LINK: ${{ secrets.WHATSAPP_LINK }}
         WEDDING_MESSAGE: ${{ secrets.WEDDING_MESSAGE }}
         GIFT_MESSAGE: ${{ secrets.GIFT_MESSAGE }}
         GIFT_LINK: ${{ secrets.GIFT_LINK }}

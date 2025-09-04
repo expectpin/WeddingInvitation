@@ -35,9 +35,7 @@ export const environment: Environment = {
     fullDate: 'Test Date, 01 de Janeiro de 2025',
     time: '18:00',
     rsvpDeadline: '01 de dezembro de 2024',
-    rsvpLink: 'https://example.com/rsvp',
     whatsappNumber: '5500000000000',
-    whatsappLink: 'https://wa.me/5500000000000',
     message: 'Test wedding message for development and testing.',
     giftInfo: {
       message: 'Test gift message.',
@@ -71,9 +69,7 @@ function replaceEnvironmentVariables() {
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
     WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
     RSVP_DEADLINE: process.env.RSVP_DEADLINE || 'Data Limite RSVP',
-    RSVP_LINK: process.env.RSVP_LINK || '#',
     WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '5500000000000',
-    WHATSAPP_LINK: process.env.WHATSAPP_LINK || '#',
     WEDDING_MESSAGE: process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração.',
     GIFT_MESSAGE: process.env.GIFT_MESSAGE || 'Sua presença já é nosso maior presente!',
     GIFT_LINK: process.env.GIFT_LINK || '#'
@@ -113,9 +109,7 @@ export const environment: Environment = {
     fullDate: '${envVars.WEDDING_FULL_DATE}',
     time: '${envVars.WEDDING_TIME}',
     rsvpDeadline: '${envVars.RSVP_DEADLINE}',
-    rsvpLink: '${envVars.RSVP_LINK}',
     whatsappNumber: '${envVars.WHATSAPP_NUMBER}',
-    whatsappLink: '${envVars.WHATSAPP_LINK}',
     message: '${envVars.WEDDING_MESSAGE}',
     giftInfo: {
       message: '${envVars.GIFT_MESSAGE}',
