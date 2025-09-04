@@ -1,6 +1,8 @@
+import { Environment } from './environment.interface';
+
 // Environment para PRODUÇÃO (GitHub Pages)
 // Dados substituídos automaticamente durante o build via GitHub Secrets
-export const environment = {
+export const environment: Environment = {
   production: true,
   wedding: {
     bride: {
@@ -23,6 +25,7 @@ export const environment = {
     time: 'Horário',
     rsvpDeadline: 'Data Limite RSVP',
     rsvpLink: '#',
+    whatsappNumber: 'Número do WhatsApp',
     whatsappLink: '#',
     message: 'Uma mensagem especial sobre o amor e a celebração.',
     giftInfo: {
