@@ -60,19 +60,19 @@ export class AppComponent {
     }, 100);
   }
 
-  addCompanion() {
-    this.showCompanionFields = true;
-  }
+  // addCompanion() {
+  //   this.showCompanionFields = true;
+  // }
 
-  removeCompanion() {
-    this.showCompanionFields = false;
-    // Limpa os dados do acompanhante
-    this.formData.companion = {
-      firstName: '',
-      lastName: '',
-      phone: ''
-    };
-  }
+  // removeCompanion() {
+  //   this.showCompanionFields = false;
+  //   // Limpa os dados do acompanhante
+  //   this.formData.companion = {
+  //     firstName: '',
+  //     lastName: '',
+  //     phone: ''
+  //   };
+  // }
 
   sendConfirmation() {
     // Validação básica
@@ -82,10 +82,10 @@ export class AppComponent {
     }
 
     // Validação do acompanhante se os campos estiverem visíveis
-    if (this.showCompanionFields && (!this.formData.companion.firstName || !this.formData.companion.lastName)) {
-      alert('Por favor, preencha todos os campos do acompanhante ou remova-o.');
-      return;
-    }
+    // if (this.showCompanionFields && (!this.formData.companion.firstName || !this.formData.companion.lastName)) {
+    //   alert('Por favor, preencha todos os campos do acompanhante ou remova-o.');
+    //   return;
+    // }
 
     const guestName = `${this.formData.guest.firstName} ${this.formData.guest.lastName}`;
     let message = `Olá! Confirmo presença no casamento de ${this.weddingData.bride.name} & ${this.weddingData.groom.name}!\n\n`;
@@ -93,11 +93,11 @@ export class AppComponent {
     message += `Nome: ${guestName}\n`;
     message += `Telefone: ${this.formData.guest.phone}\n`;
 
-    if (this.showCompanionFields && this.formData.companion.firstName) {
-      const companionName = `${this.formData.companion.firstName} ${this.formData.companion.lastName}`;
-      message += `\n*Acompanhante:*\n`;
-      message += `Nome: ${companionName}\n`;
-    }
+    // if (this.showCompanionFields && this.formData.companion.firstName) {
+    //   const companionName = `${this.formData.companion.firstName} ${this.formData.companion.lastName}`;
+    //   message += `\n*Acompanhante:*\n`;
+    //   message += `Nome: ${companionName}\n`;
+    // }
 
     message += `\nAguardamos vocês no nosso grande dia! 💚`;
 
