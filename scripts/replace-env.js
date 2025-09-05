@@ -15,29 +15,35 @@ function createDevEnvironment() {
 
   // Template genérico apenas para desenvolvimento/CI quando não existe arquivo local
   const envDevTemplate = `// Environment para DESENVOLVIMENTO/TESTES (gerado automaticamente)
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
   production: false,
   wedding: {
     bride: { name: 'Test Bride' },
     groom: { name: 'Test Groom' },
     ceremony: {
       venue: 'Test Ceremony Venue',
-      address: 'Test Ceremony Address, 123'
+      address: 'Test Ceremony Address, 123',
+      mapLink: '#'
     },
     reception: {
       venue: 'Test Reception Venue',
-      address: 'Test Reception Address, 456'
+      address: 'Test Reception Address, 456',
+      mapLink: '#',
+      time: '21:30h'
     },
+    dressCode: 'Traje social elegante.',
     date: '01/01/2025',
     fullDate: 'Test Date, 01 de Janeiro de 2025',
     time: '18:00',
     rsvpDeadline: '01 de dezembro de 2024',
-    rsvpLink: 'https://example.com/rsvp',
-    whatsappLink: 'https://wa.me/5500000000000',
+    whatsappNumber: '5500000000000',
     message: 'Test wedding message for development and testing.',
     giftInfo: {
       message: 'Test gift message.',
-      link: 'https://example.com/gifts'
+      link1: 'https://example.com/gifts',
+      link2: 'https://example.com/gifts2'
     }
   }
 };
@@ -60,17 +66,21 @@ function replaceEnvironmentVariables() {
     GROOM_NAME: process.env.GROOM_NAME || 'Nome do Noivo',
     CEREMONY_VENUE: process.env.CEREMONY_VENUE || 'Local da Cerimônia',
     CEREMONY_ADDRESS: process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123',
+    CEREMONY_MAP_LINK: process.env.CEREMONY_MAP_LINK || '#',
     RECEPTION_VENUE: process.env.RECEPTION_VENUE || 'Local da Recepção',
     RECEPTION_ADDRESS: process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456',
+    RECEPTION_MAP_LINK: process.env.RECEPTION_MAP_LINK || '#',
+    RECEPTION_TIME: process.env.RECEPTION_TIME || 'Horário da Recepção',
+    DRESS_CODE: process.env.DRESS_CODE || 'Traje social elegante.',
     WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
     WEDDING_TIME: process.env.WEDDING_TIME || 'Horário',
     RSVP_DEADLINE: process.env.RSVP_DEADLINE || 'Data Limite RSVP',
-    RSVP_LINK: process.env.RSVP_LINK || '#',
-    WHATSAPP_LINK: process.env.WHATSAPP_LINK || '#',
+    WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '5500000000000',
     WEDDING_MESSAGE: process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração.',
     GIFT_MESSAGE: process.env.GIFT_MESSAGE || 'Sua presença já é nosso maior presente!',
-    GIFT_LINK: process.env.GIFT_LINK || '#'
+    GIFT_LINK1: process.env.GIFT_LINK1 || '#',
+    GIFT_LINK2: process.env.GIFT_LINK2 || '#'
   };
 
   // Log das variáveis (sem expor dados sensíveis)
@@ -83,7 +93,9 @@ function replaceEnvironmentVariables() {
 
   // Template do arquivo de produção com valores reais
   const envProdTemplate = `// Environment para PRODUÇÃO (GitHub Pages)
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
   production: true,
   wedding: {
     bride: {
@@ -94,22 +106,26 @@ export const environment = {
     },
     ceremony: {
       venue: '${envVars.CEREMONY_VENUE}',
-      address: '${envVars.CEREMONY_ADDRESS}'
+      address: '${envVars.CEREMONY_ADDRESS}',
+      mapLink: '${envVars.CEREMONY_MAP_LINK}'
     },
     reception: {
       venue: '${envVars.RECEPTION_VENUE}',
-      address: '${envVars.RECEPTION_ADDRESS}'
+      address: '${envVars.RECEPTION_ADDRESS}',
+      mapLink: '${envVars.RECEPTION_MAP_LINK}',
+      time: '${envVars.RECEPTION_TIME}'
     },
+    dressCode: '${envVars.DRESS_CODE}',
     date: '${envVars.WEDDING_DATE}',
     fullDate: '${envVars.WEDDING_FULL_DATE}',
     time: '${envVars.WEDDING_TIME}',
     rsvpDeadline: '${envVars.RSVP_DEADLINE}',
-    rsvpLink: '${envVars.RSVP_LINK}',
-    whatsappLink: '${envVars.WHATSAPP_LINK}',
+    whatsappNumber: '${envVars.WHATSAPP_NUMBER}',
     message: '${envVars.WEDDING_MESSAGE}',
     giftInfo: {
       message: '${envVars.GIFT_MESSAGE}',
-      link: '${envVars.GIFT_LINK}'
+      link1: '${envVars.GIFT_LINK1}',
+      link2: '${envVars.GIFT_LINK2}'
     }
   }
 };

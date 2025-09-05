@@ -1,6 +1,7 @@
 // Environment para PRODUÇÃO (GitHub Pages)
-// Dados substituídos automaticamente durante o build via GitHub Secrets
-export const environment = {
+import { Environment } from './environment.interface';
+
+export const environment: Environment = {
   production: true,
   wedding: {
     bride: {
@@ -11,22 +12,26 @@ export const environment = {
     },
     ceremony: {
       venue: 'Local da Cerimônia',
-      address: 'Endereço da Cerimônia, 123'
+      address: 'Endereço da Cerimônia, 123',
+      mapLink: '#'
     },
     reception: {
       venue: 'Local da Recepção',
-      address: 'Endereço da Recepção, 456'
+      address: 'Endereço da Recepção, 456',
+      mapLink: '#',
+      time: 'Horário da Recepção'
     },
+    dressCode: 'Traje social elegante',
     date: 'Mês/Ano',
     fullDate: 'Data Completa do Casamento',
     time: 'Horário',
     rsvpDeadline: 'Data Limite RSVP',
-    rsvpLink: '#',
-    whatsappLink: '#',
+    whatsappNumber: '5599999999999', // ← MUDE AQUI para seu número real com código do país e DDD
     message: 'Uma mensagem especial sobre o amor e a celebração.',
     giftInfo: {
       message: 'Sua presença já é nosso maior presente!',
-      link: '#'
+      link1: '#',
+      link2: '#'
     }
   }
 };

@@ -9,24 +9,16 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="couple-names">
-          <span class="bride-name">{{ weddingData.bride.name }}</span>
-          <span class="ampersand">&</span>
-          <span class="groom-name">{{ weddingData.groom.name }}</span>
-        </h1>
-        <p class="wedding-date">{{ weddingData.date }}</p>
-        <p class="celebration-text">Celebrando nosso amor</p>
-      </div>
-    </div>
+    <img src="hero_test.png" alt="Convite de Casamento" class="hero-image" />
   </section>
 
   <!-- Details Section -->
   <section class="details">
     <div class="container">
       <div class="detail-card">
-        <div class="detail-icon">📅</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/event.svg" alt="Data" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Data</h3>
           <p>{{ weddingData.fullDate }}<br>{{ weddingData.time }}</p>
@@ -34,18 +26,32 @@
       </div>
 
       <div class="detail-card">
-        <div class="detail-icon">⛪</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/church.svg" alt="Cerimônia" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Cerimônia</h3>
-          <p>{{ weddingData.ceremony.venue }}<br>{{ weddingData.ceremony.address }}</p>
+          <p>{{ weddingData.ceremony.venue }}<br><a href="{{ weddingData.ceremony.mapLink }}" target="_blank">{{ weddingData.ceremony.address }}</a></p>
         </div>
       </div>
 
       <div class="detail-card">
-        <div class="detail-icon">🎉</div>
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/celebration.svg" alt="Recepção" class="material-icon-svg">
+        </div>
         <div class="detail-content">
           <h3>Recepção</h3>
-          <p>{{ weddingData.reception.venue }}<br>{{ weddingData.reception.address }}</p>
+          <p>{{ weddingData.reception.venue }}<br><a href="{{ weddingData.reception.mapLink }}" target="_blank">{{ weddingData.reception.address }}</a><br>{{ weddingData.reception.time }}</p>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-icon">
+          <img src="assets/icons/material-symbols/dress.svg" alt="Traje" class="material-icon-svg">
+        </div>
+        <div class="detail-content">
+          <h3>Traje</h3>
+          <p>{{ weddingData.dressCode }}</p>
         </div>
       </div>
     </div>
@@ -55,30 +61,131 @@
   <section class="rsvp">
     <div class="container">
       <h2>Confirme sua Presença</h2>
-      <p>Sua presença é muito importante para nós!</p>
-      <p class="rsvp-deadline">Por favor, confirme até {{ weddingData.rsvpDeadline }}</p>
+      <p>Você está convidado para celebrar o nosso grande dia.</p>
+      <p class="rsvp-deadline">Pedimos gentilmente que nos confirme até dia {{ weddingData.rsvpDeadline }}<br>26.09.2025 | 19:00h</p>
       <div class="rsvp-actions">
-        <a [href]="weddingData.rsvpLink" class="btn btn-primary">Confirmar Presença</a>
-        <a [href]="weddingData.whatsappLink" class="btn btn-secondary">WhatsApp</a>
+        <button (click)="showConfirmationForm()" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
   </section>
 
+  <!-- Confirmation Form Section -->
+  <section class="confirmation-form" [class.visible]="isFormVisible" id="confirmationForm">
+    <div class="container">
+      <h2>Dados para Confirmação</h2>
+      <form class="rsvp-form">
+        <!-- Dados do convidado principal -->
+        <div class="form-group">
+          <label for="firstName">Nome *</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="formData.guest.firstName"
+            required
+            class="form-input"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Sobrenome *</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            [(ngModel)]="formData.guest.lastName"
+            required
+            class="form-input"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefone *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            [(ngModel)]="formData.guest.phone"
+            (input)="formatPhoneNumber($event)"
+            required
+            class="form-input"
+            placeholder="(xx) x xxxx-xxxx"
+            maxlength="16"
+          />
+        </div>
+
+        <!-- Botão para adicionar acompanhante -->
+        <!-- <div class="companion-section" *ngIf="!showCompanionFields">
+          <button type="button" (click)="addCompanion()" class="btn btn-outline">
+            Adicionar Acompanhante
+          </button>
+        </div> -->
+
+        <!-- Campos do acompanhante -->
+        <!-- <div class="companion-fields" *ngIf="showCompanionFields">
+          <h3>Dados do Acompanhante</h3>
+          
+          <div class="form-group">
+            <label for="companionFirstName">Nome do Acompanhante *</label>
+            <input
+              type="text"
+              id="companionFirstName"
+              name="companionFirstName"
+              [(ngModel)]="formData.companion.firstName"
+              class="form-input"
+              placeholder="Nome do acompanhante"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="companionLastName">Sobrenome do Acompanhante *</label>
+            <input
+              type="text"
+              id="companionLastName"
+              name="companionLastName"
+              [(ngModel)]="formData.companion.lastName"
+              class="form-input"
+              placeholder="Sobrenome do acompanhante"
+            />
+          </div>
+
+          <button type="button" (click)="removeCompanion()" class="btn btn-text">
+            Remover Acompanhante
+          </button>
+        </div> -->
+
+        <!-- Botão de envio -->
+        <div class="form-actions">
+          <button
+            type="button"
+            (click)="sendConfirmation()"
+            class="btn btn-primary btn-large"
+          >
+            Enviar Confirmação
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <!-- Message Section -->
-  <section class="message">
+  <!-- <section class="message">
     <div class="container">
       <h2>Uma Nova Jornada</h2>
       <p>{{ weddingData.message }}</p>
       <p class="signature">Com carinho, {{ weddingData.bride.name }} & {{ weddingData.groom.name }}</p>
     </div>
-  </section>
+  </section> -->
 
   <!-- Gifts Section -->
   <section class="gifts">
     <div class="container">
       <h2>Lista de Presentes</h2>
-      <p>{{ weddingData.giftInfo.message }}</p>
-      <a [href]="weddingData.giftInfo.link" class="btn btn-outline">Ver Lista de Presentes</a>
+      <div [innerHTML]="weddingData.giftInfo.message"></div>
+      <a [href]="weddingData.giftInfo.link1" target="_blank" class="btn btn-outline">Ver Lista de Presentes Amazon</a>
+      <a [href]="weddingData.giftInfo.link2" target="_blank"class="btn btn-outline">Ver Lista de Presentes Camicado</a>
     </div>
   </section>
 

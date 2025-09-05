@@ -44,17 +44,21 @@ jobs:
         GROOM_NAME: ${{ secrets.GROOM_NAME }}
         CEREMONY_VENUE: ${{ secrets.CEREMONY_VENUE }}
         CEREMONY_ADDRESS: ${{ secrets.CEREMONY_ADDRESS }}
+        CEREMONY_MAP_LINK: ${{ secrets.CEREMONY_MAP_LINK }}
         RECEPTION_VENUE: ${{ secrets.RECEPTION_VENUE }}
         RECEPTION_ADDRESS: ${{ secrets.RECEPTION_ADDRESS }}
+        RECEPTION_MAP_LINK: ${{ secrets.RECEPTION_MAP_LINK }}
+        RECEPTION_TIME: ${{ secrets.RECEPTION_TIME }}
+        DRESS_CODE: ${{ secrets.DRESS_CODE }}
         WEDDING_DATE: ${{ secrets.WEDDING_DATE }}
         WEDDING_FULL_DATE: ${{ secrets.WEDDING_FULL_DATE }}
         WEDDING_TIME: ${{ secrets.WEDDING_TIME }}
         RSVP_DEADLINE: ${{ secrets.RSVP_DEADLINE }}
-        RSVP_LINK: ${{ secrets.RSVP_LINK }}
-        WHATSAPP_LINK: ${{ secrets.WHATSAPP_LINK }}
+        WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
         WEDDING_MESSAGE: ${{ secrets.WEDDING_MESSAGE }}
         GIFT_MESSAGE: ${{ secrets.GIFT_MESSAGE }}
-        GIFT_LINK: ${{ secrets.GIFT_LINK }}
+        GIFT_LINK1: ${{ secrets.GIFT_LINK1 }}
+        GIFT_LINK2: ${{ secrets.GIFT_LINK2 }}
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
