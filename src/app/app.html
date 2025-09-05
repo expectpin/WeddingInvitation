@@ -84,7 +84,7 @@
             [(ngModel)]="formData.guest.firstName"
             required
             class="form-input"
-            placeholder="Seu nome"
+            placeholder=""
           />
         </div>
 
@@ -97,7 +97,7 @@
             [(ngModel)]="formData.guest.lastName"
             required
             class="form-input"
-            placeholder="Seu sobrenome"
+            placeholder=""
           />
         </div>
 
@@ -108,9 +108,11 @@
             id="phone"
             name="phone"
             [(ngModel)]="formData.guest.phone"
+            (input)="formatPhoneNumber($event)"
             required
             class="form-input"
-            placeholder="(xx) xxxxx-xxxx"
+            placeholder="(xx) x xxxx-xxxx"
+            maxlength="16"
           />
         </div>
 

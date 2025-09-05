@@ -108,4 +108,24 @@ export class AppComponent {
     // Abre o WhatsApp
     window.open(whatsappUrl, '_blank');
   }
+
+  // Função para formatar o telefone automaticamente
+  formatPhoneNumber(event: any) {
+    let value = event.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+    
+    if (value.length <= 11) {
+      // Aplica a formatação (XX) X XXXX-XXXX
+      if (value.length >= 7) {
+        value = value.replace(/(\d{2})(\d{1})(\d{4})(\d{0,4})/, '($1) $2 $3-$4');
+      } else if (value.length >= 3) {
+        value = value.replace(/(\d{2})(\d{1})(\d{0,4})/, '($1) $2 $3');
+      } else if (value.length >= 2) {
+        value = value.replace(/(\d{2})/, '($1) ');
+      }
+    }
+    
+    // Atualiza o valor do campo
+    this.formData.guest.phone = value;
+    event.target.value = value;
+  }
 }
