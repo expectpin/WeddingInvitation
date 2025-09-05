@@ -99,7 +99,7 @@ export class AppComponent {
     //   message += `Nome: ${companionName}\n`;
     // }
 
-    message += `\nAguardamos vocês no nosso grande dia! 💚`;
+    message += `\nAguardamos vocês no nosso grande dia!`;
 
     // Usa o número do WhatsApp do environment
     const whatsappNumber = this.weddingData.whatsappNumber;

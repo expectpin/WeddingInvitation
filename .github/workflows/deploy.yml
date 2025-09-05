@@ -54,7 +54,8 @@ jobs:
         WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
         WEDDING_MESSAGE: ${{ secrets.WEDDING_MESSAGE }}
         GIFT_MESSAGE: ${{ secrets.GIFT_MESSAGE }}
-        GIFT_LINK: ${{ secrets.GIFT_LINK }}
+        GIFT_LINK1: ${{ secrets.GIFT_LINK1 }}
+        GIFT_LINK2: ${{ secrets.GIFT_LINK2 }}
 
     - name: Setup Pages
       uses: actions/configure-pages@v5

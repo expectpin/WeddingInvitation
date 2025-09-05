@@ -39,7 +39,8 @@ export const environment: Environment = {
     message: 'Test wedding message for development and testing.',
     giftInfo: {
       message: 'Test gift message.',
-      link: 'https://example.com/gifts'
+      link1: 'https://example.com/gifts',
+      link2: 'https://example.com/gifts2'
     }
   }
 };
@@ -72,7 +73,8 @@ function replaceEnvironmentVariables() {
     WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '5500000000000',
     WEDDING_MESSAGE: process.env.WEDDING_MESSAGE || 'Uma mensagem especial sobre o amor e a celebração.',
     GIFT_MESSAGE: process.env.GIFT_MESSAGE || 'Sua presença já é nosso maior presente!',
-    GIFT_LINK: process.env.GIFT_LINK || '#'
+    GIFT_LINK1: process.env.GIFT_LINK1 || '#',
+    GIFT_LINK2: process.env.GIFT_LINK2 || '#'
   };
 
   // Log das variáveis (sem expor dados sensíveis)
@@ -113,7 +115,8 @@ export const environment: Environment = {
     message: '${envVars.WEDDING_MESSAGE}',
     giftInfo: {
       message: '${envVars.GIFT_MESSAGE}',
-      link: '${envVars.GIFT_LINK}'
+      link1: '${envVars.GIFT_LINK1}',
+      link2: '${envVars.GIFT_LINK2}'
     }
   }
 };

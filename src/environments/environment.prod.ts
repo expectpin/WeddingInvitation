@@ -27,7 +27,8 @@ export const environment: Environment = {
     message: 'Uma mensagem especial sobre o amor e a celebração.',
     giftInfo: {
       message: 'Sua presença já é nosso maior presente!',
-      link: '#'
+      link1: '#',
+      link2: '#'
     }
   }
 };

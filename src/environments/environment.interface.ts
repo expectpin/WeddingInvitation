@@ -22,7 +22,8 @@ export interface WeddingData {
   message: string;
   giftInfo: {
     message: string;
-    link: string;
+    link1: string;
+    link2: string;
   };
 }
 
