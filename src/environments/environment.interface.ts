@@ -8,10 +8,13 @@ export interface WeddingData {
   ceremony: {
     venue: string;
     address: string;
+    mapLink?: string;
   };
   reception: {
     venue: string;
     address: string;
+    mapLink?: string;
+    time?: string;
   };
   dressCode: string;
   date: string;

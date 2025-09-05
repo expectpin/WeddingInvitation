@@ -31,7 +31,7 @@
         </div>
         <div class="detail-content">
           <h3>Cerimônia</h3>
-          <p>{{ weddingData.ceremony.venue }}<br>{{ weddingData.ceremony.address }}</p>
+          <p>{{ weddingData.ceremony.venue }}<br><a href="{{ weddingData.ceremony.mapLink }}" target="_blank">{{ weddingData.ceremony.address }}</a></p>
         </div>
       </div>
 
@@ -41,7 +41,7 @@
         </div>
         <div class="detail-content">
           <h3>Recepção</h3>
-          <p>{{ weddingData.reception.venue }}<br>{{ weddingData.reception.address }}</p>
+          <p>{{ weddingData.reception.venue }}<br><a href="{{ weddingData.reception.mapLink }}" target="_blank">{{ weddingData.reception.address }}</a><br>{{ weddingData.reception.time }}</p>
         </div>
       </div>
 
@@ -182,8 +182,8 @@
     <div class="container">
       <h2>Lista de Presentes</h2>
       <div [innerHTML]="weddingData.giftInfo.message"></div>
-      <a [href]="weddingData.giftInfo.link1" class="btn btn-outline">Ver Lista de Presentes Amazon</a>
-      <a [href]="weddingData.giftInfo.link2" class="btn btn-outline">Ver Lista de Presentes Camicado</a>
+      <a [href]="weddingData.giftInfo.link1" target="_blank" class="btn btn-outline">Ver Lista de Presentes Amazon</a>
+      <a [href]="weddingData.giftInfo.link2" target="_blank"class="btn btn-outline">Ver Lista de Presentes Camicado</a>
     </div>
   </section>
 

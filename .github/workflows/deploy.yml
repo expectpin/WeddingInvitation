@@ -44,8 +44,11 @@ jobs:
         GROOM_NAME: ${{ secrets.GROOM_NAME }}
         CEREMONY_VENUE: ${{ secrets.CEREMONY_VENUE }}
         CEREMONY_ADDRESS: ${{ secrets.CEREMONY_ADDRESS }}
+        CEREMONY_MAP_LINK: ${{ secrets.CEREMONY_MAP_LINK }}
         RECEPTION_VENUE: ${{ secrets.RECEPTION_VENUE }}
         RECEPTION_ADDRESS: ${{ secrets.RECEPTION_ADDRESS }}
+        RECEPTION_MAP_LINK: ${{ secrets.RECEPTION_MAP_LINK }}
+        RECEPTION_TIME: ${{ secrets.RECEPTION_TIME }}
         DRESS_CODE: ${{ secrets.DRESS_CODE }}
         WEDDING_DATE: ${{ secrets.WEDDING_DATE }}
         WEDDING_FULL_DATE: ${{ secrets.WEDDING_FULL_DATE }}

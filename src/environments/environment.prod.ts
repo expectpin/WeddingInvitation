@@ -12,11 +12,14 @@ export const environment: Environment = {
     },
     ceremony: {
       venue: 'Local da Cerimônia',
-      address: 'Endereço da Cerimônia, 123'
+      address: 'Endereço da Cerimônia, 123',
+      mapLink: '#'
     },
     reception: {
       venue: 'Local da Recepção',
-      address: 'Endereço da Recepção, 456'
+      address: 'Endereço da Recepção, 456',
+      mapLink: '#',
+      time: 'Horário da Recepção'
     },
     dressCode: 'Traje social elegante',
     date: 'Mês/Ano',

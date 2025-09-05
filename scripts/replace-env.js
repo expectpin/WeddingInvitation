@@ -24,11 +24,14 @@ export const environment: Environment = {
     groom: { name: 'Test Groom' },
     ceremony: {
       venue: 'Test Ceremony Venue',
-      address: 'Test Ceremony Address, 123'
+      address: 'Test Ceremony Address, 123',
+      mapLink: '#'
     },
     reception: {
       venue: 'Test Reception Venue',
-      address: 'Test Reception Address, 456'
+      address: 'Test Reception Address, 456',
+      mapLink: '#',
+      time: '21:30h'
     },
     dressCode: 'Traje social elegante.',
     date: '01/01/2025',
@@ -63,8 +66,11 @@ function replaceEnvironmentVariables() {
     GROOM_NAME: process.env.GROOM_NAME || 'Nome do Noivo',
     CEREMONY_VENUE: process.env.CEREMONY_VENUE || 'Local da Cerimônia',
     CEREMONY_ADDRESS: process.env.CEREMONY_ADDRESS || 'Endereço da Cerimônia, 123',
+    CEREMONY_MAP_LINK: process.env.CEREMONY_MAP_LINK || '#',
     RECEPTION_VENUE: process.env.RECEPTION_VENUE || 'Local da Recepção',
     RECEPTION_ADDRESS: process.env.RECEPTION_ADDRESS || 'Endereço da Recepção, 456',
+    RECEPTION_MAP_LINK: process.env.RECEPTION_MAP_LINK || '#',
+    RECEPTION_TIME: process.env.RECEPTION_TIME || 'Horário da Recepção',
     DRESS_CODE: process.env.DRESS_CODE || 'Traje social elegante.',
     WEDDING_DATE: process.env.WEDDING_DATE || 'Mês/Ano',
     WEDDING_FULL_DATE: process.env.WEDDING_FULL_DATE || 'Data Completa do Casamento',
@@ -100,11 +106,14 @@ export const environment: Environment = {
     },
     ceremony: {
       venue: '${envVars.CEREMONY_VENUE}',
-      address: '${envVars.CEREMONY_ADDRESS}'
+      address: '${envVars.CEREMONY_ADDRESS}',
+      mapLink: '${envVars.CEREMONY_MAP_LINK}'
     },
     reception: {
       venue: '${envVars.RECEPTION_VENUE}',
-      address: '${envVars.RECEPTION_ADDRESS}'
+      address: '${envVars.RECEPTION_ADDRESS}',
+      mapLink: '${envVars.RECEPTION_MAP_LINK}',
+      time: '${envVars.RECEPTION_TIME}'
     },
     dressCode: '${envVars.DRESS_CODE}',
     date: '${envVars.WEDDING_DATE}',
